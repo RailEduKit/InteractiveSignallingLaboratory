@@ -1,0 +1,267 @@
+# .github/ISSUE_TEMPLATE/bug_report.yml
+name: 🐛 Bug Report
+description: Report a bug in the SigLab
+title: "[BUG] "
+labels: ["bug", "needs-triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for your bug report! Please fill out the following fields.
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected Component
+      description: Which part of the SigLab is affected?
+      options:
+        - Website/Documentation
+        - 3D Models/Print Files
+        - Manual/Game Instructions
+        - Cross-cutting/Integration
+        - Unknown
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Which version are you using? (e.g., v1.2.0, commit hash, or "latest")
+      placeholder: v1.2.0
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Problem Description
+      description: What is the problem? What did you expect?
+      placeholder: Please describe the problem in detail...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce the problem?
+      placeholder: |
+        1. Go to...
+        2. Click on...
+        3. See error...
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Technical details (browser, 3D printer, LaTeX version, etc.)
+      placeholder: |
+        - Browser: Chrome 96.0
+        - 3D Printer: Prusa i3 MK3S
+        - Operating System: Windows 11
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Information
+      description: Screenshots, logs, or other helpful information
+    validations:
+      required: false
+
+---
+
+# .github/ISSUE_TEMPLATE/feature_request.yml
+name: ✨ Feature Request
+description: Suggest a new feature or improvement
+title: "[FEATURE] "
+labels: ["enhancement", "needs-discussion"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for your improvement suggestion!
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected Component
+      description: Which part should be extended?
+      options:
+        - Website/Documentation
+        - 3D Models/Print Files
+        - Manual/Game Instructions
+        - Cross-cutting/Integration
+        - New Component
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this feature?
+      options:
+        - Low - Nice to have
+        - Medium - Would improve the game
+        - High - Important for gameplay
+        - Critical - Necessary for release
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem/Need
+      description: What problem does this feature solve? Why is it needed?
+      placeholder: As a [user type] I want to [goal] so that [benefit]...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: How could this feature be implemented?
+      placeholder: Describe your idea for implementation...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Solutions
+      description: Have you considered other approaches?
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: impact
+    attributes:
+      label: Affected Areas
+      description: Which teams/areas would be affected by this change?
+      options:
+        - label: Web Development
+        - label: 3D Modeling
+        - label: Manual/Documentation
+        - label: Game Design
+        - label: User Experience
+        - label: Translation
+
+---
+
+# .github/ISSUE_TEMPLATE/coordination.yml
+name: 🤝 Coordination/Integration
+description: Cross-cutting topics between different components
+title: "[COORDINATION] "
+labels: ["coordination", "cross-repo"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For topics affecting multiple repositories or teams.
+
+  - type: checkboxes
+    id: affected_repos
+    attributes:
+      label: Affected Repositories
+      description: Which areas are affected?
+      options:
+        - label: learning-game-website
+        - label: learning-game-3d-models  
+        - label: learning-game-manual
+        - label: All Repositories
+    validations:
+      required: true
+
+  - type: dropdown
+    id: coordination_type
+    attributes:
+      label: Type of Coordination
+      options:
+        - Synchronization between components
+        - Shared dependencies
+        - Release coordination
+        - Design decision
+        - Data format/Interface
+        - Workflow/Process
+    validations:
+      required: true
+
+  - type: textarea
+    id: issue_description
+    attributes:
+      label: Description
+      description: What needs to be coordinated?
+      placeholder: Describe the cross-cutting topic...
+    validations:
+      required: true
+
+  - type: textarea
+    id: affected_teams
+    attributes:
+      label: Affected Teams/People
+      description: Who should be involved in the discussion?
+      placeholder: "username1, team-web-dev, etc."
+
+  - type: textarea
+    id: timeline
+    attributes:
+      label: Timeline
+      description: Are there any deadlines or time dependencies?
+
+---
+
+# .github/ISSUE_TEMPLATE/question.yml
+name: ❓ Question
+description: General questions about the project
+title: "[QUESTION] "
+labels: ["question"]
+
+body:
+  - type: dropdown
+    id: question_type
+    attributes:
+      label: Type of Question
+      options:
+        - Technical Implementation
+        - Game Rules/Design
+        - Workflow
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: What would you like to know?
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Additional information that might help with answering
+
+---
+
+# .github/ISSUE_TEMPLATE/config.yml
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Discussion
+    url: https://github.com/railedukit/InteractiveSignallingLaboratory/discussions
+    about: For open discussions and brainstorming
+  - name: 📖 Documentation
+    url: https://railedukit.github.io/InteractiveSignallingLaboratory
+    about: Project documentation and instructions

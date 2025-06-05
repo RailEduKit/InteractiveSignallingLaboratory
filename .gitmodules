@@ -1,0 +1,12 @@
+[submodule "papercut"]
+	path = papercut
+	url = https://github.com/RailEduKit/SigLab-Papercut.git
+[submodule "3d-models"]
+	path = 3d-models
+	url = https://github.com/RailEduKit/SigLab-3Dmodels.git
+[submodule "handbook"]
+	path = handbook
+	url = https://github.com/RailEduKit/SigLab-handbook.git
+[submodule "website"]
+	path = website
+	url = https://github.com/RailEduKit/SigLab-Website.git
