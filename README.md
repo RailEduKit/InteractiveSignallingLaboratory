@@ -8,10 +8,10 @@ The project consists of several 📦 submodules:
 
 | Module | Description | Purpose |
 |--------|-------------|---------|
-| 📖 handbook | Signalling exercises and learning materials | Contains how to use the laboratory with exercises |
-| 🌐 website | Web-based documentation | Howto construct the Interactive Signalling Laboratory |
-| 🏗️ papercut | Paper-based objects | For prototyping and testing |
-| 🏗️ 3d-models | 3D printable models | Signalling equipment for wooden train sets |
+| [📖 handbook](https://github.com/RailEduKit/SigLab-handbook) | Signalling exercises and learning materials | Contains how to use the laboratory with exercises |
+| [🌐 website](https://github.com/RailEduKit/SigLab-Website) | Web-based documentation | Howto construct the Interactive Signalling Laboratory |
+| [🏗️ papercut](https://github.com/RailEduKit/SigLab-Papercut) | Paper-based objects | For prototyping and testing |
+| [🏗️ 3d-models](https://github.com/RailEduKit/SigLab-3Dmodels) | 3D printable models | Signalling equipment for wooden train sets |
 
 ## Getting Started
 
