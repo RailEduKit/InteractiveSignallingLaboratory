@@ -1,20 +1,25 @@
-// Parameters
-// include configuration file
-include <../3d-models/scad/config/global_variables.scad>
+/* RailEduKit/InteractiveSignallingLaboratory © 2026 by Martin Scheidt and contributors
+ * License: CC-BY 4.0 - https://creativecommons.org/licenses/by/4.0/
+ * Project description: The Interactive Signalling Laboratory is a tool for training in Rail
+ * Applications to enhance the knowledge of control and signalling principles for rail transport systems.
+ *
+ * Module: logo
+ */
+ 
+ // Parameters
+include <../3d-models/scad/config/global_variables.scad> // include configuration file
 $fn            = 200;
 diameter       = 110;  // Outer diameter (point to point)
-wall_thickness = 2;    // Wall thickness
+line_width     = 2;    // 
 height         = 20;   // Height of hexagon
 corner_radius  = 20;   // Radius of rounded corners
-scale_x        = 1.0;  // Horizontal scaling (1 = no distortion)
-scale_y        = 1.15; // Vertical scaling (1 = no distortion)
-rail_width     = 2;
+scale_x        = 1.0;  // hexagon Horizontal scaling (1 = no distortion)
+scale_y        = 1.15; // hexagon Vertical scaling (1 = no distortion)
 
 // use external libraries
 use <../3d-models/scad/jigs/track_straight.scad>;
 use <../3d-models/scad/parts/signal_box.scad>;
 use <../3d-models/scad/parts/signal_symbols.scad>;
-
 
 // Module for hexagon with rounded corners
 module rounded_hexagon(d, r, h, scale_x = 1, scale_y = 1) {
@@ -30,7 +35,7 @@ module rounded_hexagon(d, r, h, scale_x = 1, scale_y = 1) {
 // Main object: difference between outer and inner hexagon
 module logo_hexagon(
     diameter       = 50,
-    wall_thickness = 2,
+    line_width     = 2,
     height         = 10,
     radius         = 3,
     inner_empty    = true,
@@ -44,26 +49,26 @@ module logo_hexagon(
         // Inner hexagon (for hollow interior)
         if (inner_empty) {
             translate([0, 0, -0.5]) // Slightly lower for clean difference
-            rounded_hexagon(diameter - 2 * wall_thickness, radius - wall_thickness/2, height + 1, scale_x, scale_y);
+            rounded_hexagon(diameter - 2 * line_width, radius - line_width/2, height + 1, scale_x, scale_y);
         }
     }
 }
 
 module track(with_rails=false){
     module rail(){// fake rails for the graphics
-        cube([rail_width,146,6],center = true);
+        cube([line_width,146,6],center = true);
     }
     difference(){
         translate([0,-144.25,0]) render_track("female", "none", "male", "none", false);
         if (with_rails) {
-            color("black") translate([7,-73,0]) rail();
+            color("black") translate([ 7,-73,0]) rail();
             color("brown") translate([33,-73,0]) rail();
         }
     }
     difference(){
         translate([0,   0.25,0]) render_track("female", "none", "male", "none", false);
         if (with_rails) {
-            color("black") translate([7,73,0]) rail();
+            color("black") translate([ 7,73,0]) rail();
             color("brown") translate([33,73,0]) rail();
         }
     }
