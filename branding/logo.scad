@@ -11,10 +11,11 @@ include <../3d-models/scad/config/global_variables.scad> // include configuratio
 $fn            = 200;
 diameter       = 110;  // Outer diameter (point to point)
 line_width     = 2;    // 
-height         = 20;   // Height of hexagon
+height         = 1;    // Height of hexagon
 corner_radius  = 20;   // Radius of rounded corners
 scale_x        = 1.0;  // hexagon Horizontal scaling (1 = no distortion)
 scale_y        = 1.15; // hexagon Vertical scaling (1 = no distortion)
+model3D        = true; // variable for external script call to export STL or SVG
 
 // use external libraries
 use <../3d-models/scad/jigs/track_straight.scad>;
@@ -96,6 +97,13 @@ module logo(){
     
 }
 
-projection(cut = true)
-rotate([0,0,-90])
-logo();
+if (model3D) {
+    linear_extrude(height = height)
+    projection(cut = true)
+    rotate([0, 0, -90])
+    logo();
+} else {
+    projection(cut = true)
+    rotate([0, 0, -90])
+    logo();
+}

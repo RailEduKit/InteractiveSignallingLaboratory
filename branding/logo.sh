@@ -29,12 +29,16 @@ echo "Input: $INPUT_SCAD"
 echo "Output base name: $OUTPUT_NAME"
 echo ""
 
-# Step 1: Export from OpenSCAD to SVG
-echo "[1/4] Exporting OpenSCAD to SVG..."
+# Step 1: Export from OpenSCAD to STL
+echo "[1/7] Exporting OpenSCAD to STL..."
+openscad -o "${OUTPUT_NAME}.stl" \
+         -D model3D=true \
+         "$INPUT_SCAD"
+
+# Step 2: Export from OpenSCAD to SVG
+echo "[2/7] Exporting OpenSCAD to SVG..."
 openscad -o "${OUTPUT_NAME}_temp.svg" \
-         --projection=o \
-         --viewall \
-         --autocenter \
+         -D model3D=false \
          "$INPUT_SCAD"
 
 if [ $? -ne 0 ]; then
@@ -42,42 +46,37 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Step 2: Make all SVG lines black using sed (BSD-compatible)
-echo "[2/4] Converting all lines to black..."
+# Step 3: Make all SVG lines black using sed (BSD-compatible)
+echo "[3/7] Converting all lines to black..."
 sed -e 's/stroke="[^"]*"/stroke="black"/g' \
     -e 's/fill="[^"]*"/fill="black"/g' \
     "${OUTPUT_NAME}_temp.svg" > "${OUTPUT_NAME}.svg"
 
-# Alternative: If you want filled black shapes instead of just outlines:
-# sed -e 's/stroke="[^"]*"/stroke="black"/g' \
-#     -e 's/fill="[^"]*"/fill="black"/g' \
-#     "${OUTPUT_NAME}_temp.svg" > "${OUTPUT_NAME}.svg"
-
 rm "${OUTPUT_NAME}_temp.svg"
 
-# Step 3a: Convert SVG to PNG using Inkscape
-echo "[3/4] Converting to PNG..."
+# Step 4: Convert SVG to PNG using Inkscape
+echo "[4/7] Converting to PNG..."
 inkscape "${OUTPUT_NAME}.svg" \
          --export-type=png \
          --export-filename="${OUTPUT_NAME}_300dpi.png" \
          --export-dpi=300
 
-# Step 3b: Convert SVG to PNG using Inkscape
-echo "[3/4] Converting to PNG..."
+# Step 5: Convert SVG to PNG using Inkscape
+echo "[5/7] Converting to PNG..."
 inkscape "${OUTPUT_NAME}.svg" \
          --export-type=png \
          --export-filename="${OUTPUT_NAME}_600dpi.png" \
          --export-dpi=600
 
-# Step 3c: Convert SVG to PNG using Inkscape
-echo "[3/4] Converting to PNG..."
+# Step 6: Convert SVG to PNG using Inkscape
+echo "[6/7] Converting to PNG..."
 inkscape "${OUTPUT_NAME}.svg" \
          --export-type=png \
          --export-filename="${OUTPUT_NAME}_1200dpi.png" \
          --export-dpi=1200
 
-# Step 4: Convert SVG to PDF and EPS using Inkscape
-echo "[4/4] Converting to PDF and EPS..."
+# Step 7: Convert SVG to PDF and EPS using Inkscape
+echo "[7/7] Converting to PDF and EPS..."
 inkscape "${OUTPUT_NAME}.svg" \
          --export-type=pdf \
          --export-filename="${OUTPUT_NAME}.pdf"
