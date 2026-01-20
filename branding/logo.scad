@@ -59,18 +59,20 @@ module track(with_rails=false){
     module rail(){// fake rails for the graphics
         cube([line_width,146,6],center = true);
     }
+    module rails(){
+        color("black") translate([   line_width*4,0,0]) rail();
+        color("brown") translate([40-line_width*4,0,0]) rail();
+    }
     difference(){
         translate([0,-144.25,0]) render_track("female", "none", "male", "none", false);
         if (with_rails) {
-            color("black") translate([ 7,-73,0]) rail();
-            color("brown") translate([33,-73,0]) rail();
+            translate([0,-73,0]) rails();
         }
     }
     difference(){
         translate([0,   0.25,0]) render_track("female", "none", "male", "none", false);
         if (with_rails) {
-            color("black") translate([ 7,73,0]) rail();
-            color("brown") translate([33,73,0]) rail();
+            translate([0,73,0]) rails();
         }
     }
 }
@@ -78,9 +80,9 @@ module track(with_rails=false){
 module signal(){
     difference(){
         translate([-31,-25,-1]) signal_box();
-        translate([-22, 10,-1]) symbol_block();
-        translate([-10, -6,-1]) rotate([0,0,90]) symbol_distant();
-        translate([-22,-21,-1]) symbol_route();
+        translate([-22, 10,-1]) symbol_block(engraving_thickness=line_width);
+        translate([-10, -6,-1]) rotate([0,0,90]) symbol_distant(engraving_thickness=line_width);
+        translate([-22,-21,-1]) symbol_route(engraving_thickness=line_width);
     }
 }
 
