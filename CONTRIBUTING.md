@@ -8,7 +8,7 @@ This project uses Git submodules to manage several components:
 
 - `papercut/`: Contains the Papercut application
 - `3d-models/`: Contains 3D models for the project
-- `handbook/`: Contains the project handbook
+- `handouts/`: Contains the project handouts
 - `website/`: Contains the project website
 
 ## Getting Started

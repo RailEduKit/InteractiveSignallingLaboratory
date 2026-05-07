@@ -8,7 +8,7 @@ The project consists of several 📦 submodules:
 
 | Module | Description | Purpose |
 |--------|-------------|---------|
-| [📖 handbook](https://github.com/RailEduKit/SigLab-handbook) | Signalling exercises and learning materials | Contains how to use the laboratory with exercises |
+| [📖 handouts](https://github.com/RailEduKit/SigLab-handbook) | Signalling exercises and learning materials | Contains how to use the laboratory with exercises |
 | [🌐 website](https://github.com/RailEduKit/SigLab-Website) | Web-based documentation | Howto construct the Interactive Signalling Laboratory |
 | [🏗️ papercut](https://github.com/RailEduKit/SigLab-Papercut) | Paper-based objects | For prototyping and testing |
 | [🏗️ 3d-models](https://github.com/RailEduKit/SigLab-3Dmodels) | 3D printable models | Signalling equipment for wooden train sets |
@@ -42,8 +42,8 @@ Each component can be used independently:
    - Use the provided STL files with your 3D printer
    - Check the `website` for assembly instructions
 
-3. **Handbook**
-   - The `handbook` directory contains how to use the laboratory with exercises
+3. **Handouts**
+   - The `handouts` directory contains how to use the laboratory with exercises
    - Includes tutorials and reference materials
 
 4. **Website**
@@ -54,7 +54,7 @@ Each component can be used independently:
 We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute to this project. You can also check our [issues](https://github.com/RailEduKit/InteractiveSignallingLaboratory/issues) to see what needs to be done or to report bugs. Check out our [contributors](https://github.com/RailEduKit/SigLab-Website/blob/main/CONTRIBUTORS.md) to see who has helped make this project possible.
 
 ## Roadmap
-- [ ] Make handbook multilingale
+- [ ] Make handouts multilingale
 - [ ] Extend with train numbers
 - [ ] Extend with dispatching
 - [ ] Extend with simulations of malfunctions and disruptions
